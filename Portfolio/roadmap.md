@@ -1,9 +1,0 @@
-- [x] Confirm the existing resume action and source files.
-- [x] Add a password gate for downloading and viewing the resume.
-- [x] Place the current resume at the requested public file path.
-- [x] Link the portfolio’s GitHub profile buttons to the supplied GitHub account.
-- [x] Package the updated source into a clean ZIP and verify its contents.
-- [x] Check preview diagnostics and re-read this roadmap before reporting completion.
-- [x] Update desktop and mobile header labels to Home, About, Skills, Tools, Projects, Certificate, Contact.
-- [x] Package the updated portfolio source into a clean ZIP and verify its contents.
-- [x] Check preview diagnostics and re-read this roadmap before reporting completion.
