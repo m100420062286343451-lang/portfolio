@@ -1,0 +1,1 @@
+- Keep the resume verification UI in the About section and its served PDF at `public/resume-secured-9x2k.pdf`; the two actions must target the same file.

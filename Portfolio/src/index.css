@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Professional Teal & White Corporate Theme */
+    --background: 210 20% 98%;
+    --foreground: 215 28% 17%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 17%;
+
+    --primary: 173 86% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 172 79% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 172 79% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 0 0% 100%;
+    --ring: 173 86% 32%;
+
+    --radius: 0.75rem;
+
+    /* Custom teal theme colors */
+    --teal-primary: 173 86% 32%;
+    --teal-secondary: 172 79% 40%;
+    --text-primary: 215 28% 17%;
+    --text-secondary: 215 16% 47%;
+    
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(173 86% 32%) 0%, hsl(172 79% 40%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(210 20% 98%) 0%, hsl(210 20% 96%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(173 86% 32% / 0.1) 0%, hsl(172 79% 40% / 0.05) 100%);
+    
+    /* Professional shadows */
+    --shadow-glow: 0 0 20px hsl(173 86% 32% / 0.2);
+    --shadow-card: 0 4px 6px -1px hsl(215 28% 17% / 0.1), 0 2px 4px -1px hsl(215 28% 17% / 0.06);
+    --shadow-elevated: 0 10px 15px -3px hsl(215 28% 17% / 0.1), 0 4px 6px -2px hsl(215 28% 17% / 0.05);
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Keep the professional teal theme even in dark mode preference */
+    --background: 210 20% 98%;
+    --foreground: 215 28% 17%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 17%;
+
+    --primary: 173 86% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 172 79% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 172 79% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 0 0% 100%;
+    --ring: 173 86% 32%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Professional card styling */
+  .glass-card {
+    @apply bg-white shadow-card border border-border rounded-xl;
+  }
+  
+  /* Professional gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  /* Glow effect */
+  .glow-effect {
+    @apply relative;
+  }
+  
+  .glow-effect::before {
+    @apply content-[''] absolute inset-0 rounded-lg opacity-50 blur-xl;
+    background: var(--gradient-primary);
+    z-index: -1;
+  }
+  
+  /* Hover animations */
+  .hover-lift {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+  }
+  
+  /* Navigation link animation */
+  .nav-link {
+    @apply relative py-2 px-4 text-foreground/80 hover:text-foreground transition-colors duration-300;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer components {
+  /* Animated hero gradient backdrop */
+  .hero-animated-bg {
+    background: linear-gradient(120deg,
+      hsl(210 20% 98%) 0%,
+      hsl(173 86% 32% / 0.08) 25%,
+      hsl(172 79% 40% / 0.10) 50%,
+      hsl(210 20% 98%) 75%,
+      hsl(173 86% 32% / 0.08) 100%);
+    background-size: 300% 300%;
+    @apply animate-gradient-pan;
+  }
+
+  /* Mouse-follow radial glow, driven by --mx/--my */
+  .mouse-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%),
+      hsl(173 86% 32% / 0.16),
+      transparent 45%);
+    transition: background 0.15s ease-out;
+    z-index: 0;
+  }
+
+  /* Ripple */
+  .btn-ripple { position: relative; overflow: hidden; }
+  .btn-ripple::after {
+    content: '';
+    position: absolute;
+    left: var(--rx, 50%);
+    top: var(--ry, 50%);
+    width: 12px; height: 12px;
+    margin-left: -6px; margin-top: -6px;
+    border-radius: 9999px;
+    background: hsl(var(--primary) / 0.35);
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .btn-ripple.is-rippling::after {
+    animation: ripple 0.6s ease-out;
+  }
+
+  /* Chip / filter pill */
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium
+           border border-border bg-white text-foreground/70
+           transition-all duration-200 hover:text-foreground hover:border-primary/40 hover:shadow-card;
+  }
+  .chip[data-active="true"] {
+    @apply bg-gradient-primary text-primary-foreground border-transparent shadow-glow;
+  }
+}
